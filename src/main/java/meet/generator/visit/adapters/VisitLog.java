@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class VisitListener {
+public class VisitLog {
 
     @StreamListener(VisitBindings.INPUT)
-    public void handleGreetings(@Payload Visit visit) {
-        log.info("Received greetings: {}", visit);
+    public void log(@Payload Visit visit) {
+        log.info("Received visit: {}", visit);
     }
 }

@@ -2,18 +2,9 @@ spring:
   cloud:
     stream:
       bindings:
-        output:
-          destination: transformed
-        test-sink:
-          destination: transformed
-        input:
-          destination: testtock
-        test-source:
-          destination: testtock
-
-        greetings-in:
-          destination: greetings
+        visits-in:
+          destination: visits
           contentType: application/json
-        greetings-out:
-          destination: greetings
+        visits-out:
+          destination: visits
           contentType: application/json
