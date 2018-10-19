@@ -1,11 +1,11 @@
-package meet.generator.visit.OK;
+package meet.generator.visit.ports;
 
 import org.springframework.cloud.stream.annotation.Input;
 import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.SubscribableChannel;
 
-public interface GreetingsStreams {
+public interface VisitBindings {
 
     String INPUT = "greetings-in";
     String OUTPUT = "greetings-out";
