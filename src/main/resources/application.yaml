@@ -2,9 +2,17 @@ spring:
   cloud:
     stream:
       bindings:
-        visits-in:
-          destination: visits
-          contentType: application/json
+
         visits-out:
           destination: visits
+          contentType: application/json
+
+        input:
+          destination: visits
+
+        output:
+          destination: visits-processed
+
+        visits-in:
+          destination: visits-processed
           contentType: application/json
