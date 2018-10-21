@@ -14,6 +14,8 @@ public enum Disease {
     DEHYDRATION,
     TUBERCULOSIS,
     CIRRHOSIS,
-    ADHD
+    ADHD,
+    SYNESTHESIA,
+    NARCOLEPSY
 
 }
