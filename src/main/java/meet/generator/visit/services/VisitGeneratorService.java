@@ -31,7 +31,6 @@ public class VisitGeneratorService {
         return visit;
     }
 
-    //TODO move to utils
     public static <T> T random(double[] weights, List<T> items){
         Random rand = new Random();
         double p = rand.nextDouble();
