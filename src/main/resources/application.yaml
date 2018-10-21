@@ -1,4 +1,10 @@
+server:
+  port: 8081
+
 spring:
+  application:
+    name: generator-visit
+
   cloud:
     stream:
       bindings:
@@ -9,10 +15,3 @@ spring:
 
         input:
           destination: visits
-
-        output:
-          destination: visits-processed
-
-        visits-in:
-          destination: visits-processed
-          contentType: application/json

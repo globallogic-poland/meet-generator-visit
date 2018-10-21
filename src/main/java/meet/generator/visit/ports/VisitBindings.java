@@ -7,11 +7,7 @@ import org.springframework.messaging.SubscribableChannel;
 
 public interface VisitBindings {
 
-    String INPUT = "visits-in";
     String OUTPUT = "visits-out";
-
-    @Input(INPUT)
-    SubscribableChannel visitsIn();
 
     @Output(OUTPUT)
     MessageChannel visitsOut();
