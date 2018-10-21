@@ -1,7 +1,6 @@
 package meet.generator.visit.model;
 
 public enum Disease {
-
     ISCHEMIC_HEART_DISEASE,
     STROKE,
     LOWER_RESPIRATORY_INFECTIONS,
@@ -15,7 +14,10 @@ public enum Disease {
     TUBERCULOSIS,
     CIRRHOSIS,
     ADHD,
+    ALICE_IN_WONDERLAND_SYNDROM,
     SYNESTHESIA,
-    NARCOLEPSY
-
+    NARCOLEPSY,
+    UNER_TAN_SYNDROM,
+    AWIOFOBIA,
+    KALIGYNEOFOBIA
 }
