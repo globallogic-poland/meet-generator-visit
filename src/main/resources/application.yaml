@@ -8,10 +8,6 @@ spring:
   cloud:
     stream:
       bindings:
-
-        visits-out:
+        visits:
           destination: visits
           contentType: application/json
-
-        input:
-          destination: visits

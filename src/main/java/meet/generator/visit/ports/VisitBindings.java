@@ -5,8 +5,8 @@ import org.springframework.messaging.MessageChannel;
 
 public interface VisitBindings {
 
-    String OUTPUT = "visits-out";
+    String VISITS = "visits";
 
-    @Output(OUTPUT)
-    MessageChannel visitsOut();
+    @Output(VISITS)
+    MessageChannel visits();
 }
