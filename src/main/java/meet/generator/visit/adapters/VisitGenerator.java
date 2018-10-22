@@ -26,12 +26,10 @@ public class VisitGenerator {
     @Bean
     @InboundChannelAdapter(channel = VISITS, poller = @Poller(fixedDelay = "1000"))
     public MessageSource<Visit> generate() {
-        log.info("generate message");
         return () -> MessageBuilder
                 .withPayload(visitGeneratorService.generate())
                 .setHeader(MessageHeaders.CONTENT_TYPE, MimeTypeUtils.APPLICATION_JSON)
                 .build();
     }
-
 
 }
