@@ -26,7 +26,7 @@ import static meet.generator.visit.ports.VisitBindings.OUTPUT;
 @EnableBinding(VisitBindings.class)
 public class VisitGenerator {
 
-    @Autowired
+    @Autowired //TODO change to autowire by constructor
     VisitGeneratorService visitGeneratorService;
 
     @Bean

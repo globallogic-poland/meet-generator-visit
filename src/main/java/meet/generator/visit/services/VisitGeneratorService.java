@@ -20,8 +20,6 @@ public class VisitGeneratorService {
     private final double[]  doctorsWeights  = {0.1,0.1,0.1,0.5,0.1};
     private final double[]  clinicsWeights  = {0.1,0.2,0.5,0.1,0.1};
     private final double[]  patietsWeights  = {0.1,0.2,0.5,0.1,0.1};
-    //TODO drugs
-    //TODO diseases
 
     public Visit generate() {
         Visit visit = Visit.builder()
@@ -29,13 +27,10 @@ public class VisitGeneratorService {
                 .doctorId(random(doctorsWeights, doctors))
                 .clinicId(random(clinicsWeights, clinics))
                 .patientId(random(patietsWeights, patients))
-                .prescribedDrugs(Arrays.asList(Drug.ABILIFY, Drug.SEROQUEL))
-                .diagnosedDisease(Disease.ADHD)
                 .build();
         return visit;
     }
 
-    //TODO move to utils
     public static <T> T random(double[] weights, List<T> items){
         Random rand = new Random();
         double p = rand.nextDouble();
