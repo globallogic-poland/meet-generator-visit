@@ -11,3 +11,13 @@ spring:
         visits:
           destination: visits
           contentType: application/json
+
+generator:
+  data:
+    doctors: ["Watson", "Jekyll", "Dolittle", "Ford", "Van Helsing", "House", "Johnson"]
+    clinics: ["Luxmed", "7", "Staford", "Clinic1", "Clinic2"]
+    patients: ["Mazurek", "Patient1", "Patient2", "Patient3", "Patient4", "Patient4", "Patient4"]
+  weights:
+    doctors: [0.1, 0.1, 0.1, 0.5, 0.1]
+    clinics: [0.1, 0.2, 0.5, 0.1, 0.1]
+    patients: [0.1, 0.2, 0.5, 0.1, 0.1]
