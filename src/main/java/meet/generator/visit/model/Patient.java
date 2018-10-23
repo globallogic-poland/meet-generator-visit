@@ -11,13 +11,15 @@ public class Patient {
 
     String id;
 
-    String name;
+    String firstName;
+
+    String lastName;
 
     int age;
 
     Sex sex;
 
-    Set<String> chronicDiseases;
+    Set<String> chronicDiseases; // TODO: String -> Disease
 
     String district;
 
