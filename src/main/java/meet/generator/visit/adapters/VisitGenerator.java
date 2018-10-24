@@ -1,35 +1,42 @@
 package meet.generator.visit.adapters;
 
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import meet.generator.visit.config.WeightsSettings;
 import meet.generator.visit.dto.Visit;
-import meet.generator.visit.ports.VisitBindings;
-import meet.generator.visit.services.VisitGeneratorService;
-import org.springframework.cloud.stream.annotation.EnableBinding;
-import org.springframework.context.annotation.Bean;
-import org.springframework.integration.annotation.InboundChannelAdapter;
-import org.springframework.integration.annotation.Poller;
-import org.springframework.integration.core.MessageSource;
-import org.springframework.messaging.MessageHeaders;
-import org.springframework.messaging.support.MessageBuilder;
-import org.springframework.util.MimeTypeUtils;
+import meet.generator.visit.ports.Generator;
 
-import static meet.generator.visit.ports.VisitBindings.VISITS;
+import java.util.List;
+import java.util.Random;
+import java.util.UUID;
 
-@Slf4j
 @AllArgsConstructor
-@EnableBinding(VisitBindings.class)
-public class VisitGenerator {
+public class VisitGenerator implements Generator<Visit> {
 
-    private final VisitGeneratorService visitGeneratorService;
+    private DataPuller dataPuller;
 
-    @Bean
-    @InboundChannelAdapter(channel = VISITS, poller = @Poller(fixedDelay = "1000"))
-    public MessageSource<Visit> generate() {
-        return () -> MessageBuilder
-                .withPayload(visitGeneratorService.generate())
-                .setHeader(MessageHeaders.CONTENT_TYPE, MimeTypeUtils.APPLICATION_JSON)
+    private final WeightsSettings weights;
+
+    @Override
+    public Visit next() {
+        return Visit.builder()
+                .id(UUID.randomUUID().toString())
+                .doctor(random(weights.getDoctors(), dataPuller.pullDoctors()))
+                .clinic(random(weights.getClinics(), dataPuller.pullClinics()))
+                .patient(random(weights.getPatients(), dataPuller.pullPatients()))
                 .build();
+    }
+
+    private <T> T random(List<Double> weights, List<T> items) {
+        Random rand = new Random();
+        double p = rand.nextDouble();
+        double sum = 0.0;
+        int i = 0;
+
+        while ((sum < p) && (i < weights.size())) {
+            sum += weights.get(i);
+            i++;
+        }
+        return items.get(i - 1);
     }
 
 }
