@@ -10,6 +10,8 @@ import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.cloud.stream.reactive.StreamEmitter;
 import reactor.core.publisher.Flux;
 
+import java.time.Duration;
+
 import static meet.generator.visit.ports.VisitGeneratorBindings.VISITS;
 
 @Slf4j
@@ -19,22 +21,12 @@ public class VisitProducer {
 
     private final ProducerProvider<Visit> producerProvider;
 
-//    private final ProducerSettings settings;
-
-//    @Bean
-//    @InboundChannelAdapter(channel = VISITS, poller = @Poller(fixedDelay = "1000"))
-//    public MessageSource<Visit> generate() {
-//        return () -> MessageBuilder
-//                .withPayload(visitGenerator.next())
-//                .setHeader(MessageHeaders.CONTENT_TYPE, MimeTypeUtils.APPLICATION_JSON)
-//                .build();
-//    }
-
     @StreamEmitter
     @Output(VISITS)
     public Flux<Visit> send() {
-//        return producerProvider.create(settings.getPatientCount());
-        return producerProvider.create(5);
+//        return producerProvider.create(1_000_000);
+        return Flux.interval(Duration.ofMillis(250))
+                .zipWith(producerProvider.create(1_000_000), (l, visit) -> visit);
     }
 
 }

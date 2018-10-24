@@ -14,6 +14,6 @@ spring:
 
 generator:
   weights:
-    doctors: [0.1, 0.1, 0.1, 0.5, 0.1]
+    doctors: [0.1, 0.1, 0.1, 0.1, 0.1]
     clinics: [0.1, 0.2, 0.5, 0.1, 0.1]
     patients: [0.1, 0.2, 0.5, 0.1, 0.1]
