@@ -14,10 +14,10 @@ public class Visit {
     String id;
 
     Doctor doctor;
-    Patient patient;
-    Clinic clinic;
 
-    // TODO: consider VisitResult
+    Patient patient;
+
+    Clinic clinic;
 
     Disease diagnosedDisease;
 
@@ -28,7 +28,6 @@ public class Visit {
 
     double clinicIncome;
 
-    // TODO: @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    LocalDateTime appointmentTime;
+    long appointmentTime;
 
 }
