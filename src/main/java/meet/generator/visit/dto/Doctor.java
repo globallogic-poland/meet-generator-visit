@@ -1,13 +1,14 @@
-package meet.generator.visit.model;
+package meet.generator.visit.dto;
 
 import lombok.Builder;
+import lombok.Singular;
 import lombok.Value;
 
 import java.util.Set;
 
 @Value
 @Builder
-public class Patient {
+public class Doctor {
 
     String id;
 
@@ -15,16 +16,13 @@ public class Patient {
 
     String lastName;
 
-    int age;
-
-    Sex sex;
-
-    Set<String> chronicDiseases; // TODO: String -> Disease
-
     String district;
 
     String city;
 
     String country;
+
+    @Singular
+    Set<Specialization> specializations;
 
 }

@@ -1,4 +1,4 @@
-package meet.generator.visit.model;
+package meet.generator.visit.dto;
 
 import lombok.Builder;
 import lombok.Singular;

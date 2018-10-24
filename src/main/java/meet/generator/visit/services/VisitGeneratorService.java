@@ -2,7 +2,7 @@ package meet.generator.visit.services;
 
 import lombok.AllArgsConstructor;
 import meet.generator.visit.config.GeneratorSettings;
-import meet.generator.visit.model.Visit;
+import meet.generator.visit.dto.Visit;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

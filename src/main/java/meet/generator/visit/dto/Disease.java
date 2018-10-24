@@ -1,4 +1,4 @@
-package meet.generator.visit.model;
+package meet.generator.visit.dto;
 
 public enum Disease {
     ISCHEMIC_HEART_DISEASE,
