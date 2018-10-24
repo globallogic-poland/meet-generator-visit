@@ -1,10 +1,14 @@
 package meet.generator.visit.dto;
 
-import lombok.Builder;
-import lombok.Value;
+import lombok.*;
 
+@Getter
+@Setter
+@EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
+//@Value
 @Builder
-@Value
 public class Clinic {
 
     String id;

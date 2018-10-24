@@ -1,28 +1,31 @@
 package meet.generator.visit.dto;
 
-import lombok.Builder;
-import lombok.Singular;
-import lombok.Value;
+import lombok.*;
 
 import java.util.Set;
 
-@Value
+@Getter
+@Setter
+@EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
+//@Value
 @Builder
 public class Doctor {
 
-    String id;
+    private String id;
 
-    String firstName;
+    private String firstName;
 
-    String lastName;
+    private String lastName;
 
-    String district;
+    private String district;
 
-    String city;
+    private String city;
 
-    String country;
+    private String country;
 
     @Singular
-    Set<Specialization> specializations;
+    private Set<Specialization> specializations;
 
 }

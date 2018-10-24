@@ -1,12 +1,15 @@
 package meet.generator.visit.dto;
 
-import lombok.Builder;
-import lombok.Singular;
-import lombok.Value;
+import lombok.*;
 
 import java.util.Set;
 
-@Value
+@Getter
+@Setter
+@EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
+//@Value
 @Builder
 public class Patient {
 
