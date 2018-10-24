@@ -13,11 +13,9 @@ public class Visit {
 
     String id;
 
-    String doctorId;
-
-    String patientId;
-
-    String clinicId;
+    Doctor doctor;
+    Patient patient;
+    Clinic clinic;
 
     // TODO: consider VisitResult
 

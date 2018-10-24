@@ -3,6 +3,9 @@ package meet.generator.visit.services;
 import lombok.AllArgsConstructor;
 import meet.generator.visit.config.GeneratorSettings;
 import meet.generator.visit.dto.Visit;
+import meet.generator.visit.repos.ClinicRepo;
+import meet.generator.visit.repos.DoctorRepo;
+import meet.generator.visit.repos.PatientRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,13 +20,16 @@ public class VisitGeneratorService {
     (and microservices from their casandras) or read all to memory and then stream */
 
     private final GeneratorSettings settings;
+    private final DoctorRepo doctorRepo;
+    private final PatientRepo patientRepo;
+    private final ClinicRepo clinicRepo;
 
     public Visit generate() {
         return Visit.builder()
                 .id(UUID.randomUUID().toString())
-                .doctorId(random(settings.getWeights().getDoctors(), settings.getData().getDoctors()))
-                .clinicId(random(settings.getWeights().getClinics(), settings.getData().getClinics()))
-                .patientId(random(settings.getWeights().getPatients(), settings.getData().getPatients()))
+                .doctor(random(settings.getWeights().getDoctors(), doctorRepo.getAll()))
+                .clinic(random(settings.getWeights().getClinics(), clinicRepo.getAll()))
+                .patient(random(settings.getWeights().getPatients(), patientRepo.getAll()))
                 .build();
     }
 
