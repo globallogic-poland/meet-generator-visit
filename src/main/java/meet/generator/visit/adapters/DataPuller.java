@@ -17,7 +17,6 @@ public class DataPuller {
 
     private WebClient webClient = WebClient.builder().build();
 
-
     public List<Doctor> pullDoctors() {
         return consume(DOCTORS_URI, Doctor.class);
     }

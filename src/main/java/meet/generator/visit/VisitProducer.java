@@ -34,7 +34,7 @@ public class VisitProducer {
     @Output(VISITS)
     public Flux<Visit> send() {
 //        return producerProvider.create(settings.getPatientCount());
-        return producerProvider.create(100);
+        return producerProvider.create(5);
     }
 
 }

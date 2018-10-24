@@ -1,6 +1,7 @@
 package meet.generator.visit.adapters;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import meet.generator.visit.config.WeightsSettings;
 import meet.generator.visit.dto.Visit;
 import meet.generator.visit.ports.Generator;
@@ -10,6 +11,7 @@ import java.util.Random;
 import java.util.UUID;
 
 @AllArgsConstructor
+@Slf4j
 public class VisitGenerator implements Generator<Visit> {
 
     private DataPuller dataPuller;
