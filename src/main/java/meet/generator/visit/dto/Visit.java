@@ -1,4 +1,4 @@
-package meet.generator.visit.model;
+package meet.generator.visit.dto;
 
 import lombok.Builder;
 import lombok.Singular;
@@ -13,11 +13,9 @@ public class Visit {
 
     String id;
 
-    String doctorId;
-
-    String patientId;
-
-    String clinicId;
+    Doctor doctor;
+    Patient patient;
+    Clinic clinic;
 
     // TODO: consider VisitResult
 

@@ -1,23 +1,15 @@
-package meet.generator.visit.model;
+package meet.generator.visit.dto;
 
 import lombok.Builder;
 import lombok.Value;
 
-import java.util.Set;
-
-@Value
 @Builder
-public class Patient {
+@Value
+public class Clinic {
 
     String id;
-
+    
     String name;
-
-    int age;
-
-    Sex sex;
-
-    Set<String> chronicDiseases;
 
     String district;
 
