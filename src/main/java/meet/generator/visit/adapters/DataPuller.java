@@ -11,9 +11,9 @@ import java.util.List;
 @Component
 public class DataPuller {
 
-    private static final String DOCTORS_URI = "http://localhost:31100/doctors"; // TODO: change ports
     private static final String PATIENTS_URI = "http://localhost:31100/patients";
-    private static final String CLINICS_URI = "http://localhost:31100/clinics";
+    private static final String CLINICS_URI = "http://localhost:31200/clinics";
+    private static final String DOCTORS_URI = "http://localhost:31300/doctors";
 
     private WebClient webClient = WebClient.builder().build();
 
